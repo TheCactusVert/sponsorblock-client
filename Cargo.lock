@@ -675,7 +675,6 @@ name = "sponsorblock-client"
 version = "0.1.0"
 dependencies = [
  "hex",
- "log",
  "reqwest",
  "serde",
  "serde_derive",
