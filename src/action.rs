@@ -8,14 +8,20 @@ pub enum Action {
     Poi,
 }
 
+impl AsRef<str> for Action {
+    fn as_ref(&self) -> &str {
+        match self {
+            Action::Skip => "skip",
+            Action::Mute => "mute",
+            Action::Full => "full",
+            Action::Poi => "poi",
+        }
+    }
+}
+
 impl fmt::Display for Action {
     fn fmt(&self, f: &mut fmt::Formatter<'_>) -> fmt::Result {
-        match self {
-            Action::Skip => write!(f, "skip"),
-            Action::Mute => write!(f, "mute"),
-            Action::Full => write!(f, "full"),
-            Action::Poi => write!(f, "poi"),
-        }
+        f.write_str(self.as_ref())
     }
 }
 

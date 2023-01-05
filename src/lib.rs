@@ -26,12 +26,8 @@ where
 
     url.query_pairs_mut()
         .append_pair("videoID", &id)
-        .extend_pairs(categories.into_iter().map(|v| ("category", v.to_string())))
-        .extend_pairs(
-            action_types
-                .into_iter()
-                .map(|v| ("actionType", v.to_string())),
-        );
+        .extend_pairs(categories.into_iter().map(|v| ("category", v)))
+        .extend_pairs(action_types.into_iter().map(|v| ("actionType", v)));
 
     let req = Client::builder()
         .user_agent(USER_AGENT)
@@ -65,12 +61,8 @@ where
         .unwrap();
 
     url.query_pairs_mut()
-        .extend_pairs(categories.into_iter().map(|v| ("category", v.to_string())))
-        .extend_pairs(
-            action_types
-                .into_iter()
-                .map(|v| ("actionType", v.to_string())),
-        );
+        .extend_pairs(categories.into_iter().map(|v| ("category", v)))
+        .extend_pairs(action_types.into_iter().map(|v| ("actionType", v)));
 
     let req = Client::builder()
         .user_agent(USER_AGENT)

@@ -14,20 +14,26 @@ pub enum Category {
     ExclusiveAccess,
 }
 
+impl AsRef<str> for Category {
+    fn as_ref(&self) -> &str {
+        match self {
+            Category::Sponsor => "sponsor",
+            Category::SelfPromo => "selfpromo",
+            Category::Interaction => "interaction",
+            Category::Poi => "poi_highlight",
+            Category::Intro => "intro",
+            Category::Outro => "outro",
+            Category::Preview => "preview",
+            Category::MusicOfftopic => "music_offtopic",
+            Category::Filler => "filler",
+            Category::ExclusiveAccess => "exclusive_access",
+        }
+    }
+}
+
 impl fmt::Display for Category {
     fn fmt(&self, f: &mut fmt::Formatter<'_>) -> fmt::Result {
-        match self {
-            Category::Sponsor => write!(f, "sponsor"),
-            Category::SelfPromo => write!(f, "selfpromo"),
-            Category::Interaction => write!(f, "interaction"),
-            Category::Poi => write!(f, "poi_highlight"),
-            Category::Intro => write!(f, "intro"),
-            Category::Outro => write!(f, "outro"),
-            Category::Preview => write!(f, "preview"),
-            Category::MusicOfftopic => write!(f, "music_offtopic"),
-            Category::Filler => write!(f, "filler"),
-            Category::ExclusiveAccess => write!(f, "exclusive_access"),
-        }
+        f.write_str(self.as_ref())
     }
 }
 
