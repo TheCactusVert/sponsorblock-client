@@ -27,10 +27,8 @@ pub type Segments = Vec<Segment>;
 #[derive(Debug, Deserialize)]
 #[serde(rename_all = "camelCase")]
 pub struct Video {
-    //#[serde(rename = "videoID")]
-    //pub video_id: String,
-    #[serde(with = "hex")]
-    pub hash: [u8; 32],
+    #[serde(rename = "videoID")]
+    pub video_id: String,
     pub segments: Segments,
 }
 

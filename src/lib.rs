@@ -51,7 +51,7 @@ where
     A: IntoIterator<Item = Action>,
 {
     let mut hasher = Sha256::new(); // create a Sha256 object
-    hasher.update(id); // write input message
+    hasher.update(&id); // write input message
     let hash = hasher.finalize(); // read hash digest and consume hasher
 
     let mut url = server_address
@@ -76,6 +76,6 @@ where
         .json::<Videos>()
         .await?
         .into_iter()
-        .find(|v| v.hash == hash.as_slice())
+        .find(|v| v.video_id == id)
         .map_or(Segments::default(), |v| v.segments))
 }
