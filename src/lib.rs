@@ -29,14 +29,12 @@ impl SponsorBlock {
         })
     }
 
-    pub fn set_server_address(&mut self, server_address: Url) -> &Self {
+    pub fn set_server_address(&mut self, server_address: Url) {
         self.server_address = server_address;
-        self
     }
 
-    pub fn set_private_api(&mut self, private_api: bool) -> &Self {
+    pub fn set_private_api(&mut self, private_api: bool) {
         self.private_api = private_api;
-        self
     }
 
     pub async fn fetch<C, A>(
