@@ -7,8 +7,8 @@ edition = "2021"
 
 [dependencies]
 hex = { version = "0.4.3", features = ["serde"] }
-reqwest = { version = "0.11.18", default-features = false, features = ["json", "rustls", "rustls-tls"] }
-serde = "1.0.183"
-serde_derive = "1.0.183"
-sha2 = "0.10.7"
-url = "2.4.0"
+reqwest = { version = "0.12.4", default-features = false, features = ["json", "rustls-tls"] }
+serde = "1.0.198"
+serde_derive = "1.0.198"
+sha2 = "0.10.8"
+url = "2.5.0"
